@@ -29,17 +29,25 @@ import { verifyOtpOfForgotPasswordController2 } from '../controller/verifyOtpOfF
 import { changePasswordOfForgotPasswordController } from '../controller/changePasswordOfForgotPassword.controller';
 import { updateProfileController2 } from '../controller/updateProfile2.controller';
 import { changePasswordInSettingsController2 } from '../controller/changePasswordInSettings2.controller';
+import { signUpController3 } from '../controller/signUp3.controller';
+import { verifyOtpController3 } from '../controller/verifyOtp3.controller';
+import { signInWithOtpController } from '../controller/signInWithOtp.controller';
+import { verifyOtpForSignInController } from '../controller/verifyOtpForSignIn.controller';
+import { forgotPasswordController3 } from '../controller/forgotPassword3.controller';
+import { resetPasswordWithOtpController } from '../controller/resetPasswordWithOtp.controller';
 
 const authV2Router = express.Router();
 
-authV2Router.post('/sign-up', signUp2Controller);
-authV2Router.post('/verify-otp', verifyOtp2Controller);
+authV2Router.post('/sign-up', signUpController3);
+authV2Router.post('/verify-otp', verifyOtpController3);
 authV2Router.post('/sign-in', signIn2Controller);
+authV2Router.post('/sign-in-with-otp', signInWithOtpController);
+authV2Router.post('/verify-otp-for-sign-in', verifyOtpForSignInController);
 authV2Router.post('/complete-profile-1', completeProfile1Controller);
 authV2Router.post('/complete-profile-2', completeProfile2Controller);
 authV2Router.post('/update-single-auth-card', updateSingleAuthCardController);
 authV2Router.post('/add-vault-password', addVaultPasswordController);
-authV2Router.post('/forgot-password', forgotPasswordController2);
+authV2Router.post('/forgot-password', forgotPasswordController3);
 authV2Router.post('/forgot-vault-password', forgotVaultPasswordController);
 authV2Router.post(
   '/second-phase-of-forgot-vault-password',
@@ -51,6 +59,8 @@ authV2Router.post(
   verifyOtpOfForgotPasswordController2
 );
 authV2Router.post('/reset-password', changePasswordController);
+authV2Router.post('/reset-password-with-otp', resetPasswordWithOtpController);
+
 authV2Router.post(
   '/change-password-of-forgot-password',
   changePasswordOfForgotPasswordController

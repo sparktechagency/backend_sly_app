@@ -124,7 +124,8 @@ const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
     (error.includes('please enter') ||
       error.includes('invalid') ||
       error.includes('not valid') ||
-      error.includes('please give'))
+      error.includes('please give') ||
+      error.includes('please provide'))
   ) {
     code = StatusCodes.BAD_REQUEST;
     message = error;
@@ -133,14 +134,22 @@ const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
     (error.message.includes('please enter') ||
       error.message.includes('invalid') ||
       error.message.includes('not valid') ||
-      error.message.includes('please give'))
+      error.message.includes('please give') ||
+      error.message.includes('please provide'))
   ) {
     code = StatusCodes.BAD_REQUEST;
     message = error.message;
-  } else if (typeof error === 'string' && error.includes('is already')) {
+  } else if (
+    typeof error === 'string' &&
+    error.includes('is already') === error.includes('already exists')
+  ) {
     code = StatusCodes.CONFLICT;
     message = error;
-  } else if (error instanceof Error && error.message.includes('is already')) {
+  } else if (
+    error instanceof Error &&
+    (error.message.includes('is already') ||
+      error.message.includes('already exists'))
+  ) {
     code = StatusCodes.CONFLICT;
     message = error.message;
   }

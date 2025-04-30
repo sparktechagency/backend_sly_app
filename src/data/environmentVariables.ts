@@ -38,3 +38,8 @@ export const MAXIMUM_DISTANCE_BETWEEN_USER_AND_DRIVER_IN_KM = Number(
   process.env.MAXIMUM_DISTANCE_BETWEEN_USER_AND_DRIVER_IN_KM
 );
 export const GOOGLE_MAP_API_KEY = process.env.GOOGLE_MAP_API_KEY as string;
+export const TWILIO_ACCOUNT_SID = process.env.TWILIO_ACCOUNT_SID as string;
+export const TWILIO_AUTH_TOKEN = process.env.TWILIO_AUTH_TOKEN as string;
+export const TWILIO_PHONE_NUMBER = process.env.TWILIO_PHONE_NUMBER as string;
+export const FOLDER_OF_PRODUCT_IMAGE = process.env
+  .FOLDER_OF_PRODUCT_IMAGE as string;
