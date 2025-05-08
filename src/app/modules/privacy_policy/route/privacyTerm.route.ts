@@ -4,8 +4,9 @@ import { getPrivacyTermsController } from '../controller/getPrivacyTerms.control
 
 const router = express.Router();
 
-router.get('/get-privacy-terms', getPrivacyTermsController);
-router.post('/edit-privacy-terms', editPrivacyTermsController);
+router.get('/get-privacy-policy', getPrivacyTermsController);
+router.post('/edit-privacy-policy', editPrivacyTermsController);
+router.post('/update-privacy-policy', editPrivacyTermsController);
 
 export const privacyTermsRouter = router;
 //

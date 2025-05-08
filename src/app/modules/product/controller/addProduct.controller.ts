@@ -4,8 +4,13 @@ import { getDataFromFormOfRequest } from '../../../../helpers/getDataFromFormAR7
 import { saveAndGiveRefinedUrl } from '../../../../helpers/saveAndGiveRefinedLink';
 import { productModel } from '../model/product.model';
 import { FOLDER_OF_PRODUCT_IMAGE } from '../../../../data/environmentVariables';
+import {
+  checkIfUserRequestingAdmin3,
+  checkIfUserRequestingAdmin4,
+} from '../../../../helpers/checkIfRequestedUserAdmin';
 
 export const addProductController = myControllerHandler(async (req, res) => {
+  await checkIfUserRequestingAdmin4(req);
   const myFormData = await getDataFromFormOfRequest(req);
   const { fields, files } = myFormData;
   const {

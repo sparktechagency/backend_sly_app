@@ -1,10 +1,13 @@
 import { StatusCodes } from 'http-status-codes';
 import { myControllerHandler } from '../../../../utils/controller/myControllerHandler.utils';
 import { faqModel } from '../model/faq.model';
-import { checkIfUserRequestingAdmin3 } from '../../../../helpers/checkIfRequestedUserAdmin';
+import {
+  checkIfUserRequestingAdmin3,
+  checkIfUserRequestingAdmin4,
+} from '../../../../helpers/checkIfRequestedUserAdmin';
 
 export const updateFaqController = myControllerHandler(async (req, res) => {
-  await checkIfUserRequestingAdmin3(req);
+  await checkIfUserRequestingAdmin4(req);
   const { id, question, answer } = req.body;
 
   if (!id) {

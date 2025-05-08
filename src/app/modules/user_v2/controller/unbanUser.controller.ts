@@ -1,8 +1,10 @@
 import { StatusCodes } from 'http-status-codes';
 import { myControllerHandler } from '../../../../utils/controller/myControllerHandler.utils';
 import { userModel } from '../../auth_v2/model/user.model';
+import { checkIfUserRequestingAdmin4 } from '../../../../helpers/checkIfRequestedUserAdmin';
 
 export const unBanUserController3 = myControllerHandler(async (req, res) => {
+  await checkIfUserRequestingAdmin4(req);
   const { id } = req.body;
   const userData = await userModel.findOne({ id });
   if (!userData) {

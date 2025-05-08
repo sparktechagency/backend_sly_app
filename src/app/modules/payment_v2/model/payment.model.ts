@@ -10,7 +10,8 @@ const paymentSchema = new mongoose.Schema(
       default: () => 'payment_' + ar7id(),
     },
     userId: { type: String, required: true },
-    packageId: { type: String, required: true },
+    packageId: { type: String, required: false },
+    orderId: { type: String, required: false },
     transactionId: { type: String, required: true, unique: true },
     amount: { type: Number, required: true },
     currency: { type: String, required: true },
@@ -28,7 +29,4 @@ const paymentSchema = new mongoose.Schema(
   }
 );
 
-export const PaymentModel = mongoose.model(
-  'Payment_model_of_mantled',
-  paymentSchema
-);
+export const PaymentModel = mongoose.model('payment_records', paymentSchema);

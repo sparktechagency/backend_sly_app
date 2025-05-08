@@ -108,14 +108,17 @@ const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
     message = error.message;
   } else if (
     typeof error === 'string' &&
-    (error.includes('not have permission') || error.includes('not admin'))
+    (error.includes('not have permission') ||
+      error.includes('not admin') ||
+      error.includes('not permitted'))
   ) {
     code = StatusCodes.UNAUTHORIZED;
     message = error;
   } else if (
     error instanceof Error &&
     (error.message.includes('not have permission') ||
-      error.message.includes('not admin'))
+      error.message.includes('not admin') ||
+      error.message.includes('not permitted'))
   ) {
     code = StatusCodes.UNAUTHORIZED;
     message = error.message;

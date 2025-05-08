@@ -3,11 +3,12 @@ import { myControllerHandler } from '../../../../utils/controller/myControllerHa
 import {
   checkIfUserRequestingAdmin,
   checkIfUserRequestingAdmin3,
+  checkIfUserRequestingAdmin4,
 } from '../../../../helpers/checkIfRequestedUserAdmin';
 import { faqModel } from '../model/faq.model';
 
 export const createNewFaqController = myControllerHandler(async (req, res) => {
-  await checkIfUserRequestingAdmin3(req);
+  await checkIfUserRequestingAdmin4(req);
   const { question, answer } = req.body;
   if (!question) {
     throw new Error('please enter a question');

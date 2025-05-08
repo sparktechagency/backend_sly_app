@@ -3,6 +3,7 @@ import { userModelOfMantled } from '../app/modules/auth_v2/model/userModelOfMant
 import { JWT_SECRET_KEY, jwtSecretKey } from '../data/environmentVariables';
 import { getAndParseJwtTokenFromHeader } from './getAndParseBearerTokenFromHeader';
 
+type typeOfGetUserDataFromRequest2 = (req: any) => any;
 export const getUserDataFromRequest = (req: any) => {
   return new Promise(async (resolve, reject) => {
     try {
@@ -19,7 +20,9 @@ export const getUserDataFromRequest = (req: any) => {
     }
   });
 };
-export const getUserDataFromRequest2 = (req: any) => {
+export const getUserDataFromRequest2: typeOfGetUserDataFromRequest2 = (
+  req: any
+) => {
   return new Promise(async (resolve, reject) => {
     try {
       const authData = await getAndParseJwtTokenFromHeader(req, JWT_SECRET_KEY);

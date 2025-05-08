@@ -80,3 +80,26 @@ export const checkIfUserRequestingAdmin3 = (req: any) => {
     }
   });
 };
+export const checkIfUserRequestingAdmin4 = (req: any) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const authData = await getAndParseJwtTokenFromHeader(req, JWT_SECRET_KEY);
+
+      const { userId } = authData;
+      const userData = await userModel.findOne({
+        id: userId,
+      });
+      if (!userData) {
+        throw new Error('user does not exists');
+      }
+      if (userData.role === 'admin') {
+        resolve('user is admin and is authorized');
+      } else {
+        throw new Error('The user who is requesting is not admin');
+      }
+    } catch (error) {
+      console.log(error);
+      reject(error);
+    }
+  });
+};

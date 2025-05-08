@@ -3,8 +3,14 @@ import { myControllerHandler } from '../../../../utils/controller/myControllerHa
 import { getDataFromFormOfRequest } from '../../../../helpers/getDataFromFormAR7';
 import { productModel } from '../model/product.model';
 import { saveAndGiveRefinedUrl } from '../../../../helpers/saveAndGiveRefinedLink';
+import {
+  checkIfUserRequestingAdmin3,
+  checkIfUserRequestingAdmin4,
+} from '../../../../helpers/checkIfRequestedUserAdmin';
 
 export const updateProductController = myControllerHandler(async (req, res) => {
+  await checkIfUserRequestingAdmin4(req);
+
   const updatedProductData = await getDataFromFormOfRequest(req);
   const { fields, files } = updatedProductData;
   let {

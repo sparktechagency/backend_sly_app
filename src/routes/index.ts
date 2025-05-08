@@ -27,11 +27,17 @@ import { faqRouter } from '../app/modules/faq/route/faq.route';
 import { propertyBlogRouter } from '../app/modules/property_blog/route/blogs.route';
 import { propertyRouter } from '../app/modules/property/route/property.route';
 import { propertyChatRouter } from '../app/modules/property_chat/route/propertyChat.route';
-import { privacyTermsRouter } from '../app/modules/privacy_terms/route/privacyTerm.route';
+import { privacyTermsRouter } from '../app/modules/privacy_policy/route/privacyTerm.route';
 import { locationRouter } from '../app/modules/location/route/location.route';
 import { driverRouter } from '../app/modules/driver/route/driver.route';
 import { carRouter } from '../app/modules/car/route/car.route';
 import { productRouter } from '../app/modules/product/route/product.route';
+import { slyRouter } from '../app/modules/sly/route/sly.route';
+import { orderRouter } from '../app/modules/order/route/order.route';
+import { chatRouter } from '../app/modules/chat/route/chats.route';
+import { termsAndConditionsRouter } from '../app/modules/terms_and_conditions/route/termsAndConditions.route';
+import { aboutUsRouter } from '../app/modules/about_us/route/aboutUs.route';
+import { userAgreementRouter } from '../app/modules/user_agreement/route/userAgreement.route';
 
 const router = express.Router();
 
@@ -117,6 +123,30 @@ const apiRoutes = [
   {
     path: '/product',
     route: productRouter,
+  },
+  {
+    path: '/sly',
+    route: slyRouter,
+  },
+  {
+    path: '/order',
+    route: orderRouter,
+  },
+  {
+    path: '/chat',
+    route: chatRouter,
+  },
+  {
+    path: '/terms-and-conditions',
+    route: termsAndConditionsRouter,
+  },
+  {
+    path: '/about-us',
+    route: aboutUsRouter,
+  },
+  {
+    path: '/user-agreement',
+    route: userAgreementRouter,
   },
 ];
 

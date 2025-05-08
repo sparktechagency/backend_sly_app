@@ -2,6 +2,7 @@ import express from 'express';
 import { testController } from '../controller/test.controller';
 import { makeDummyUserController } from '../controller/generateDummyUser.controller';
 import { sendMessagesUsingTwilioController } from '../controller/sendMessageUsingTwilio.controller';
+import { getEncryptedTokenController } from '../controller/getEncryptedToken.controller';
 
 const testRouter = express.Router();
 
@@ -11,4 +12,5 @@ testRouter.post(
   '/send-message-using-twilio',
   sendMessagesUsingTwilioController
 );
+testRouter.get('/get-encrypted-token', getEncryptedTokenController);
 export { testRouter };
