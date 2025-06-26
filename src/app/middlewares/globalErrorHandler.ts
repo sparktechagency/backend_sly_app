@@ -144,16 +144,37 @@ const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
     message = error.message;
   } else if (
     typeof error === 'string' &&
-    error.includes('is already') === error.includes('already exists')
+    (error.includes('is already') ||
+      error.includes('already exists') ||
+      error.includes('max number of') ||
+      error.includes('already participated'))
   ) {
     code = StatusCodes.CONFLICT;
     message = error;
   } else if (
     error instanceof Error &&
     (error.message.includes('is already') ||
-      error.message.includes('already exists'))
+      error.message.includes('already exists') ||
+      error.message.includes('max number of') ||
+      error.message.includes('already participated'))
   ) {
     code = StatusCodes.CONFLICT;
+    message = error.message;
+  }
+  //
+  else if (
+    typeof error === 'string' &&
+    (error.includes('not have any sly') ||
+      error.includes('not have enough sly'))
+  ) {
+    code = StatusCodes.PAYMENT_REQUIRED;
+    message = error;
+  } else if (
+    error instanceof Error &&
+    (error.message.includes('not have any sly') ||
+      error.message.includes('not have enough sly'))
+  ) {
+    code = StatusCodes.PAYMENT_REQUIRED;
     message = error.message;
   }
 

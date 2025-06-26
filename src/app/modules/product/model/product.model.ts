@@ -12,6 +12,7 @@ const productSchema = new mongoose.Schema(
     title: {
       type: String,
       required: true,
+      unique: true,
     },
     subTitle: {
       type: String,
@@ -31,6 +32,10 @@ const productSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
+    quantity: {
+      type: Number,
+      required: false,
+    },
     orderNumber: {
       type: String,
     },
@@ -49,6 +54,10 @@ const productSchema = new mongoose.Schema(
     onHomePage: {
       type: Boolean,
       default: false,
+    },
+    numberOfTotalLotteryParticipants: {
+      type: Number,
+      required: true,
     },
   },
   { timestamps: true }

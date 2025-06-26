@@ -24,6 +24,7 @@ export const addProductController = myControllerHandler(async (req, res) => {
     type,
     description,
     is_visible_on_homescreen,
+    number_of_total_lottery_participants,
   } = fields;
 
   const arrayOfImageUrls: any = [];
@@ -49,10 +50,11 @@ export const addProductController = myControllerHandler(async (req, res) => {
     description: description[0],
     onHomePage: is_visible_on_homescreen[0] === 'true' ? true : false,
     images: arrayOfImageUrls,
+    numberOfTotalLotteryParticipants: number_of_total_lottery_participants[0],
   });
 
   const myResponse = {
-    message: 'Review Given Successfully',
+    message: 'Product Uploaded Successful',
     success: true,
     data: {
       productData,

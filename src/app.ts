@@ -9,6 +9,7 @@ import path from 'path';
 import morgan from 'morgan';
 import { sendEncryptedFileController } from './app/modules/send_file/controller/sendEncryptedFile.controller';
 import { APPLICATION_NAME } from './data/environmentVariables';
+import { router2 } from './routes/index_2';
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.use(
     credentials: true,
   })
 );
+app.use(router2);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

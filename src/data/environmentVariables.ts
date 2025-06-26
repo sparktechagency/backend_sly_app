@@ -43,3 +43,5 @@ export const TWILIO_AUTH_TOKEN = process.env.TWILIO_AUTH_TOKEN as string;
 export const TWILIO_PHONE_NUMBER = process.env.TWILIO_PHONE_NUMBER as string;
 export const FOLDER_OF_PRODUCT_IMAGE = process.env
   .FOLDER_OF_PRODUCT_IMAGE as string;
+export const STRIPE_SIGNING_SECRET = process.env
+  .STRIPE_SIGNING_SECRET as string;

@@ -26,7 +26,10 @@ import { verifyOtp2Controller } from '../controller/verifyOtp2.controller';
 import { signIn2Controller } from '../controller/signIn2.controller';
 import { forgotPasswordController2 } from '../controller/forgotPassword2.controller';
 import { verifyOtpOfForgotPasswordController2 } from '../controller/verifyOtpOfForgotPassword2.controller';
-import { changePasswordOfForgotPasswordController } from '../controller/changePasswordOfForgotPassword.controller';
+import {
+  changePasswordOfForgotPasswordController,
+  changePasswordOfForgotPasswordController2,
+} from '../controller/changePasswordOfForgotPassword.controller';
 import { updateProfileController2 } from '../controller/updateProfile2.controller';
 import { changePasswordInSettingsController2 } from '../controller/changePasswordInSettings2.controller';
 import { signUpController3 } from '../controller/signUp3.controller';
@@ -35,6 +38,7 @@ import { signInWithOtpController } from '../controller/signInWithOtp.controller'
 import { verifyOtpForSignInController } from '../controller/verifyOtpForSignIn.controller';
 import { forgotPasswordController3 } from '../controller/forgotPassword3.controller';
 import { resetPasswordWithOtpController } from '../controller/resetPasswordWithOtp.controller';
+import { verifyIfOtpExistController } from '../controller/verifyOtpExist3.controller';
 
 const authV2Router = express.Router();
 
@@ -54,16 +58,13 @@ authV2Router.post(
   secondPhaseOfForgotVaultPasswordController
 );
 
-authV2Router.post(
-  '/verify-forgot-password-otp',
-  verifyOtpOfForgotPasswordController2
-);
+authV2Router.post('/verify-forgot-password-otp', verifyIfOtpExistController);
 authV2Router.post('/reset-password', changePasswordController);
 authV2Router.post('/reset-password-with-otp', resetPasswordWithOtpController);
 
 authV2Router.post(
   '/change-password-of-forgot-password',
-  changePasswordOfForgotPasswordController
+  changePasswordOfForgotPasswordController2
 );
 authV2Router.post('/change-password', changePasswordInSettingsController);
 authV2Router.post(

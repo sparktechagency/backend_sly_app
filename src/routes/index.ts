@@ -38,6 +38,7 @@ import { chatRouter } from '../app/modules/chat/route/chats.route';
 import { termsAndConditionsRouter } from '../app/modules/terms_and_conditions/route/termsAndConditions.route';
 import { aboutUsRouter } from '../app/modules/about_us/route/aboutUs.route';
 import { userAgreementRouter } from '../app/modules/user_agreement/route/userAgreement.route';
+import { lotteryRouter } from '../app/modules/lottery/route/lottery.route';
 
 const router = express.Router();
 
@@ -147,6 +148,10 @@ const apiRoutes = [
   {
     path: '/user-agreement',
     route: userAgreementRouter,
+  },
+  {
+    path: '/lottery',
+    route: lotteryRouter,
   },
 ];
 
